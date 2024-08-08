@@ -4,9 +4,9 @@
 
 .equ SIGN_LADY_READY, VAR_TEMP_2
 
-PalletTown_MapScripts::
+PalletTown_MapScripts:: @ 816545A
 	map_script MAP_SCRIPT_ON_TRANSITION, PalletTown_OnTransition
-	map_script MAP_SCRIPT_ON_FRAME_TABLE, PalletTown_OnFrame
+	@map_script MAP_SCRIPT_ON_FRAME_TABLE, PalletTown_OnFrame
 	.byte 0
 
 PalletTown_OnTransition::
