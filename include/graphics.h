@@ -4600,4 +4600,22 @@ extern const u32 gCableCarDoor_Gfx[];
 extern const u32 gCableCarCable_Gfx[];
 extern const u16 gCableCar_Pal[];
 
+// battle terrain
+extern const u32 gBattleTerrainPalette_Building[];
+extern const u32 gBattleTerrainTiles_Building[];
+extern const u32 gBattleTerrainTilemap_Building[];
+extern const u32 gBattleTerrainPalette_Link[];
+extern const u32 gBattleTerrainPalette_Gym[];
+extern const u32 gBattleTerrainPalette_Leader[];
+extern const u32 gBattleTerrainPalette_Indoor2[];
+extern const u32 gBattleTerrainPalette_Indoor1[];
+extern const u32 gBattleTerrainPalette_Lorelei[];
+extern const u32 gBattleTerrainPalette_Bruno[];
+extern const u32 gBattleTerrainPalette_Agatha[];
+extern const u32 gBattleTerrainPalette_Lance[];
+extern const u32 gBattleTerrainPalette_Champion[];
+extern const u32 gBattleTerrainPalette_Plain[];
+extern const u32 gBattleTerrainTiles_Indoor[];
+extern const u32 gBattleTerrainTilemap_Indoor[];
+
 #endif //GUARD_GRAPHICS_H

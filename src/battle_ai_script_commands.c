@@ -298,6 +298,7 @@ void BattleAI_SetupAIData(void)
     s32 i;
     u8 *data = (u8 *)AI_THINKING_STRUCT;
     u8 moveLimitations;
+    u32 flags = AI_THINKING_STRUCT->aiFlags;
     struct Trainer* sTrainers;
 
     if(FlagGet(FLAG_MASTER_TRAINER_BATTLE))
@@ -340,6 +341,16 @@ void BattleAI_SetupAIData(void)
         gBattlerTarget = gBattlerAttacker ^ BIT_SIDE;
     }
 
+#if DEBUG_BATTLE_MENU == TRUE
+    // preserve the ai flags that user has set up
+    // if debugging
+    if (gBattleStruct->debugAISet)
+    {
+        AI_THINKING_STRUCT->aiFlags = flags;
+        return;
+    }
+#endif
+
     // Choose proper trainer ai scripts.
     // Fire Red, why all the returns?!?
     if (gBattleTypeFlags & BATTLE_TYPE_SAFARI)
@@ -379,16 +390,17 @@ u8 BattleAI_ChooseMoveOrAction(void)
     u8 consideredMoveArray[MAX_MON_MOVES];
     u8 numOfBestMoves;
     s32 i;
+    u32 flags = AI_THINKING_STRUCT->aiFlags;
 
     RecordLastUsedMoveByTarget();
-    while (AI_THINKING_STRUCT->aiFlags != 0)
+    while (flags != 0)
     {
-        if (AI_THINKING_STRUCT->aiFlags & 1)
+        if (flags & 1)
         {
             AI_THINKING_STRUCT->aiState = AIState_SettingUp;
             BattleAI_DoAIProcessing();
         }
-        AI_THINKING_STRUCT->aiFlags >>= 1;
+        flags >>= 1;
         AI_THINKING_STRUCT->aiLogicId++;
         AI_THINKING_STRUCT->movesetIndex = 0;
     }

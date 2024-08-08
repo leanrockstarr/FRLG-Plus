@@ -26,6 +26,8 @@ void ChooseSendDaycareMon(void);
 void GiveRivalStarterEgg(void);
 void CheckDaycareMonsHaveMail(void);
 void IsPartyAndBoxesFull(void);
+s8 Daycare_FindEmptySpot(struct DayCare *daycare);
+u8 GetDaycareCompatibilityScore(struct DayCare *daycare);
 
 void ScriptHatchMon(void);
 void EggHatch(void);

@@ -24,6 +24,7 @@
 #include "party_menu.h"
 #include "field_specials.h"
 #include "berry.h"
+#include "graphics.h"
 #include "constants/items.h"
 #include "constants/item_effects.h"
 #include "constants/hoenn_cries.h"
@@ -96,6 +97,7 @@ static u8 PopulateSpeciesEvoLineForRelearner(u16 species, bool8 isHatched, u16 e
 static bool32 ShouldSkipFriendshipChange(void);
 
 #include "data/battle_moves.h"
+#include "data/pokemon_graphics/footprint_table.h"
 
 // Used in an unreferenced function in RS.
 // Unreferenced here and in Emerald.
@@ -8372,4 +8374,43 @@ static bool32 ShouldSkipFriendshipChange(void)
     /*if (!gMain.inBattle && (InBattlePike() || InBattlePyramid()))
         return TRUE;*/
     return FALSE;
+}
+
+void GiveBoxMonInitialMoveset_Fast(struct BoxPokemon *boxMon) //Credit: AsparagusEduardo
+{
+    u16 species = GetBoxMonData(boxMon, MON_DATA_SPECIES, NULL);
+    s32 level = GetLevelFromBoxMonExp(boxMon);
+    s32 i;
+    u16 levelMoveCount = 0;
+    u16 moves[MAX_MON_MOVES] = {0};
+    u8 addedMoves = 0;
+    const u16 *learnset = GetSpeciesLevelUpLearnset(species);
+
+    for (i = 0; learnset[i] != LEVEL_UP_END; i++)
+        levelMoveCount++;
+        
+    for (i = levelMoveCount; (i >= 0 && addedMoves < MAX_MON_MOVES); i--)
+    {
+        if ((learnset[i] & LEVEL_UP_MOVE_LV) > (level << 9))
+            continue;
+            
+        if ((learnset[i] & LEVEL_UP_MOVE_LV) == 0)
+            continue;
+
+        if (moves[addedMoves] != (learnset[i] & LEVEL_UP_MOVE_ID))
+            moves[addedMoves++] = (learnset[i] & LEVEL_UP_MOVE_ID);
+    }
+    for (i = MAX_MON_MOVES - 1; i >= 0; i--)
+    {
+        SetBoxMonData(boxMon, MON_DATA_MOVE1 + i, &moves[i]);
+        SetBoxMonData(boxMon, MON_DATA_PP1 + i, &gBattleMoves[moves[i]].pp);
+    }
+}
+
+const u16 *GetSpeciesLevelUpLearnset(u16 species)
+{
+    const u16 *learnset = gLevelUpLearnsets[species];
+    if (learnset == NULL)
+        return gLevelUpLearnsets[SPECIES_NONE];
+    return learnset;
 }

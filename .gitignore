@@ -63,3 +63,4 @@ prefabs.json
 my_script.js
 *.js
 *.sym
+src/data/map_group_count.h

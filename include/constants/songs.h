@@ -268,6 +268,7 @@
 #define SE_DEOXYS_MOVE           260 // SE_DEOMOV
 #define SE_POKE_JUMP_SUCCESS     261 // SE_EXCELLENT
 #define SE_POKE_JUMP_FAILURE     262 // SE_NAWAMISS 
+#define END_SE                    SE_POKE_JUMP_FAILURE
 // New Emerald SFX
 #define SE_POKENAV_CALL             263 // SE_TOREEYE
 #define SE_POKENAV_HANG_UP          264 // SE_TOREOFF
@@ -546,5 +547,8 @@
 #define MUS_NONE                    0xFFFF
 
 #define MUS_NONE                    0xFFFF
+
+#define START_MUS                   MUS_HEAL
+#define END_MUS                     MUS_TEACHY_TV_MENU
 
 #endif  // GUARD_CONSTANTS_SONGS_H

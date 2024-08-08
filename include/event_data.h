@@ -60,5 +60,7 @@ u8 NuzlockeFlagGet(u8 mapsec);
 bool8 CheckMasterTrainerFlag(u16 flag);
 bool8 SetMasterTrainerFlag(u16 flag);
 bool8 ClearMasterTrainerFlag(u16 flag);
+u16 VarGetIfExist(u16 id);
+u8 FlagToggle(u16 id);
 
 #endif // GUARD_EVENT_DATA_H

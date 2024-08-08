@@ -135,6 +135,7 @@
 	.include "src/digit_obj_util.o"
 	.include "src/trainer_tower.o"
 	.include "src/berry_powder.o"
+	.include "src/debug.o"
 	.align 2
 	.include "src/key_system_menu.o"
 	.align 2

@@ -337,6 +337,32 @@ void ResetSpecialVars(void)
     gSpecialVar_0x8014 = 0;
 }
 
+u16 VarGetIfExist(u16 id)
+{
+    u16 *ptr = GetVarPointer(id);
+    if (!ptr)
+        return 65535;
+    return *ptr;
+}
+
+u8 *GetFlagPointer(u16 id)
+{
+    if (id == 0)
+        return NULL;
+    else if (id < SPECIAL_FLAGS_START)
+        return &gSaveBlock1Ptr->flags[id / 8];
+    else
+        return &sSpecialFlags[(id - SPECIAL_FLAGS_START) / 8];
+}
+
+u8 FlagToggle(u16 id)
+{
+    u8 *ptr = GetFlagPointer(id);
+    if (ptr)
+        *ptr ^= 1 << (id & 7);
+    return 0;
+}
+
 u8 NuzlockeFlagSet(u8 mapsec)
 {
     u8 id = NuzlockeLUT[mapsec];

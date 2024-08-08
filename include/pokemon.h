@@ -301,6 +301,7 @@ extern const u8 gFacilityClassToPicIndex[];
 extern const u8 gFacilityClassToTrainerClass[];
 extern const struct SpriteTemplate gSpriteTemplates_Battlers[];
 extern const u8 gPPUpGetMask[];
+extern const u8 *const gMonFootprintTable[];
 extern const u16 gEvolutionLines[NUM_SPECIES][EVOS_PER_LINE];
 
 void ZeroBoxMonData(struct BoxPokemon *boxMon);
@@ -367,6 +368,8 @@ u8 GetSecretBaseTrainerPicIndex(void);
 u8 GetSecretBaseTrainerNameIndex(void);
 bool8 IsPlayerPartyAndPokemonStorageFull(void);
 void bufferspeciesname(u8 *name, u16 species);
+void GetSpeciesName(u8 *name, u16 species);
+const u16 *GetSpeciesLevelUpLearnset(u16 species);
 u8 CalculatePPWithBonus(u16 move, u8 ppBonuses, u8 moveIndex);
 void RemoveMonPPBonus(struct Pokemon *mon, u8 moveIndex);
 void RemoveBattleMonPPBonus(struct BattlePokemon *mon, u8 moveIndex);
@@ -431,6 +434,8 @@ struct MonSpritesGfxManager *CreateMonSpritesGfxManager(u8 battlePosition, u8 mo
 void DestroyMonSpritesGfxManager(void);
 u8 *MonSpritesGfxManager_GetSpritePtr(u8 bufferId);
 u8 GetNatureFromPersonality(u32 personality);
+u8 SendMonToPC(struct Pokemon* mon);
+void GiveBoxMonInitialMoveset_Fast(struct BoxPokemon *boxMon);
 void CreateMonWithGenderNatureAbility(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, u8 gender, u8 nature, u8 abilityNum);
 void CreateEnemyMonWithIVsPersonality(struct Pokemon *mon, u16 species, u8 level, u8 *ivs, u32 personality);
 u16 ExtendedToNationalOrder(u16 expandedNum);

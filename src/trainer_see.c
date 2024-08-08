@@ -1,5 +1,6 @@
 #include "global.h"
 #include "battle_setup.h"
+#include "event_data.h"
 #include "event_object_movement.h"
 #include "field_effect.h"
 #include "field_player_avatar.h"
@@ -7,6 +8,7 @@
 #include "script.h"
 #include "task.h"
 #include "util.h"
+#include "config/overworld.h"
 #include "constants/battle_setup.h"
 #include "constants/event_object_movement.h"
 #include "constants/event_objects.h"
@@ -87,7 +89,13 @@ static const TrainerSeeFunc sTrainerSeeFuncList2[] = {
 
 bool8 CheckForTrainersWantingBattle(void)
 {
-    u32 i;
+    u8 i;
+
+#if OW_FLAG_NO_TRAINER_SEE != 0
+    if (FlagGet(OW_FLAG_NO_TRAINER_SEE))
+        return FALSE;
+#endif
+
     if (QL_IsTrainerSightDisabled() == TRUE)
         return FALSE;
 
@@ -518,7 +526,7 @@ static void Task_RevealTrainer_RunTrainerSeeFuncList(u8 taskId)
     struct ObjectEvent * trainerObj;
 
     // another objEvent loaded into by loadword?
-    LoadWordFromTwoHalfwords((u16 *)&task->data[1], (uintptr_t *)&trainerObj);
+    LoadWordFromTwoHalfwords((u16 *)&task->data[1], (u32 *)&trainerObj);
     if (!task->data[7])
     {
         ObjectEventClearHeldMovement(trainerObj);
