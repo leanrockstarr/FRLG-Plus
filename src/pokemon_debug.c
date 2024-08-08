@@ -332,7 +332,7 @@ static void PrintDigitChars(struct PokemonDebugMenu *data)
     text[i++] = CHAR_SPACE;
     text[i++] = CHAR_HYPHEN;
     text[i++] = CHAR_SPACE;
-    GetSpeciesName(&text[i], species);
+    bufferspeciesname(&text[i], species);
 
     FillWindowPixelBuffer(WIN_NAME_NUMBERS, 0x11);
     AddTextPrinterParameterized(WIN_NAME_NUMBERS, FONT_NORMAL, text, 6, 0, 0, NULL);
