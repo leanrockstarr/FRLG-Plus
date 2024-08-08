@@ -455,8 +455,11 @@
 // Emerald
 #define ITEM_MAGMA_EMBLEM 375
 #define ITEM_OLD_SEA_MAP 376
+// New battle items
+#define ITEM_CHOICE_SPECS 377
+#define ITEM_CHOICE_SCARF 378
 
-#define ITEMS_COUNT 377
+#define ITEMS_COUNT 379
 
 #define ITEM_TO_BERRY(itemId)(((itemId - FIRST_BERRY_INDEX) + 1))
 #define MAIL_NONE 0xFF

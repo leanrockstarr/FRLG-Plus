@@ -400,6 +400,9 @@ static const u32 *const sItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_SAPPHIRE]       = {gItemIcon_Gem, gItemIconPalette_Sapphire},
     [ITEM_MAGMA_EMBLEM]   = {gItemIcon_MagmaEmblem, gItemIconPalette_MagmaEmblem},
     [ITEM_OLD_SEA_MAP]    = {gItemIcon_OldSeaMap, gItemIconPalette_OldSeaMap},
+    //New battle items
+    [ITEM_CHOICE_SPECS]   = {gItemIcon_ChoiceSpecs, gItemIconPalette_ChoiceSpecs},
+    [ITEM_CHOICE_SCARF]   = {gItemIcon_ChoiceScarf, gItemIconPalette_ChoiceScarf},
     // Return to field arrow
     [ITEMS_COUNT]         = {gItemIcon_ReturnToFieldArrow, gItemIconPalette_ReturnToFieldArrow},
 };

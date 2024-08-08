@@ -3255,6 +3255,10 @@ extern const u32 gItemIconPalette_GroundTMHM[];
 extern const u32 gItemIconPalette_GhostTMHM[];
 extern const u32 gItemIconPalette_RockTMHM[];
 extern const u32 gItemIconPalette_FlyingTMHM[];
+extern const u32 gItemIcon_ChoiceSpecs[];
+extern const u32 gItemIconPalette_ChoiceSpecs[];
+extern const u32 gItemIcon_ChoiceScarf[];
+extern const u32 gItemIconPalette_ChoiceScarf[];
 // FireRed/LeafGreen key items
 extern const u32 gItemIcon_OaksParcel[];
 extern const u32 gItemIconPalette_OaksParcel[];

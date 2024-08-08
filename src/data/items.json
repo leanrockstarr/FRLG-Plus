@@ -6089,6 +6089,38 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0
+    },
+    {
+      "english": "CHOICE SPECS",
+      "itemId": "ITEM_CHOICE_SPECS",
+      "price": 9800,
+      "holdEffect": "HOLD_EFFECT_CHOICE_SPECS",
+      "holdEffectParam": 10,
+      "description_english": "An item to be held by a Pokémon.\\nThese glasses boost Sp. Atk, but\\lock the user into its first move",
+      "importance": 0,
+      "registrability": 0,
+      "pocket": "POCKET_HELD_ITEMS",
+      "type": "ITEM_TYPE_BAG_MENU",
+      "fieldUseFunc": "FieldUseFunc_OakStopsYou",
+      "battleUsage": 0,
+      "battleUseFunc": "NULL",
+      "secondaryId": 0
+    },
+    {
+      "english": "CHOICE SCARF",
+      "itemId": "ITEM_CHOICE_SCARF",
+      "price": 9800,
+      "holdEffect": "HOLD_EFFECT_CHOICE_SCARF",
+      "holdEffectParam": 10,
+      "description_english": "An item to be held by a Pokémon.\\nThis scarf boosts Speed, but \\nlocks the user into its first move.",
+      "importance": 0,
+      "registrability": 0,
+      "pocket": "POCKET_HELD_ITEMS",
+      "type": "ITEM_TYPE_BAG_MENU",
+      "fieldUseFunc": "FieldUseFunc_OakStopsYou",
+      "battleUsage": 0,
+      "battleUseFunc": "NULL",
+      "secondaryId": 0
     }
   ]
 }
