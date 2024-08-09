@@ -194,5 +194,4 @@ BattleTower_Lobby_Text_ScottGaveEonTicket::
 	.string "This BATTLE TOWER has been a\n"
 	.string "huge success but…\p"
 	.string "Perhaps it's time to push\n"
-	.string "this project to a new frontier…$"
-		
+	.string "this project to a new frontier…$"		
